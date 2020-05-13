@@ -16,12 +16,24 @@ export class AddProductForm extends React.Component {
   insert = (e) => {
     e.preventDefault();
     if (this.validateProduct()) {
-      this.props.addProduct(this.state.product)
+      this.props.addProduct(this.state.product);
+      this.clearState()
     } else {
       this.setState({
         error: true
       })
     }
+  };
+
+  clearState = () => {
+    this.setState({
+      product: {
+        name: "",
+        price: "",
+        category: ""
+      },
+      error: false
+    })
   };
 
   validateProduct = () => {
@@ -41,6 +53,7 @@ export class AddProductForm extends React.Component {
                      className="form-control"
                      id="productName"
                      placeholder="Enter Product Name"
+                     value={this.state.product.name}
                      onChange={(e) => this.setState({
                        error: false,
                        product: {
@@ -56,6 +69,7 @@ export class AddProductForm extends React.Component {
                      min="0"
                      className="form-control"
                      id="price"
+                     value={this.state.product.price}
                      placeholder="Enter price"
                      onChange={(e) => this.setState({
                        error: false,
@@ -71,6 +85,7 @@ export class AddProductForm extends React.Component {
               <input type="text"
                      className="form-control"
                      id="category"
+                     value={this.state.product.category}
                      placeholder="Enter Category"
                      onChange={(e) => this.setState({
                        error: false,
