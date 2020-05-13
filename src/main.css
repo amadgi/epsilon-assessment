@@ -1,0 +1,12 @@
+.borderStyle{
+  border: thin solid lightgray;
+}
+
+.product-item:hover{
+  background-color: aliceblue!important;
+}
+
+.custom-align{
+  position: relative;
+  left: 13%
+}
